@@ -53,5 +53,4 @@ systemctl daemon-reload
 systemctl restart docker
 
 mkdir -p /etc/kubernetes/log
-
 cp audit-policy.yaml /etc/kubernetes/audit-policy.yaml

@@ -1,0 +1,31 @@
+{
+  "kind": "Event",
+  "apiVersion": "audit.k8s.io/v1",
+  "level": "Metadata",
+  "auditID": "c071ac4f-f7c1-44f1-b5b7-d77c5bda66e4",
+  "stage": "ResponseComplete",
+  "requestURI": "/",
+  "verb": "get",
+  "user": {
+    "username": "system:anonymous",
+    "groups": [
+      "system:unauthenticated"
+    ]
+  },
+  "sourceIPs": [
+    "84.178.103.69"
+  ],
+  "userAgent": "PostmanRuntime/7.22.0",
+  "responseStatus": {
+    "metadata": {},
+    "status": "Failure",
+    "reason": "Forbidden",
+    "code": 403
+  },
+  "requestReceivedTimestamp": "2020-03-28T01:21:51.157126Z",
+  "stageTimestamp": "2020-03-28T01:21:51.157337Z",
+  "annotations": {
+    "authorization.k8s.io/decision": "forbid",
+    "authorization.k8s.io/reason": ""
+  }
+}
