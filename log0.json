@@ -1,0 +1,398 @@
+[
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Metadata",
+    "auditID": "60580f8b-b113-46ed-8851-e80001aecd9f",
+    "stage": "ResponseComplete",
+    "requestURI": "/apis/coordination.k8s.io/v1/namespaces/kube-system/leases/kube-controller-manager?timeout=10s",
+    "verb": "get",
+    "user": {
+      "username": "system:kube-controller-manager",
+      "groups": [
+        "system:authenticated"
+      ]
+    },
+    "sourceIPs": [
+      "10.0.157.160"
+    ],
+    "userAgent": "kube-controller-manager/v1.18.0 (linux/amd64) kubernetes/9e99141/leader-election",
+    "objectRef": {
+      "resource": "leases",
+      "namespace": "kube-system",
+      "name": "kube-controller-manager",
+      "apiGroup": "coordination.k8s.io",
+      "apiVersion": "v1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:32:49.319778Z",
+    "stageTimestamp": "2020-03-28T00:32:49.320839Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"system:kube-controller-manager\" of ClusterRole \"system:kube-controller-manager\" to User \"system:kube-controller-manager\""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Request",
+    "auditID": "301b94d1-7a77-4176-a891-6feec20be911",
+    "stage": "ResponseComplete",
+    "requestURI": "/api/v1/namespaces/kube-system/endpoints/kube-controller-manager?timeout=10s",
+    "verb": "update",
+    "user": {
+      "username": "system:kube-controller-manager",
+      "groups": [
+        "system:authenticated"
+      ]
+    },
+    "sourceIPs": [
+      "10.0.157.160"
+    ],
+    "userAgent": "kube-controller-manager/v1.18.0 (linux/amd64) kubernetes/9e99141/leader-election",
+    "objectRef": {
+      "resource": "endpoints",
+      "namespace": "kube-system",
+      "name": "kube-controller-manager",
+      "uid": "d1eeeb44-20e6-4d51-82e5-f43eaad3f613",
+      "apiVersion": "v1",
+      "resourceVersion": "2286"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestObject": {
+      "kind": "Endpoints",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "kube-controller-manager",
+        "namespace": "kube-system",
+        "selfLink": "/api/v1/namespaces/kube-system/endpoints/kube-controller-manager",
+        "uid": "d1eeeb44-20e6-4d51-82e5-f43eaad3f613",
+        "resourceVersion": "2286",
+        "creationTimestamp": "2020-03-28T00:18:20Z",
+        "annotations": {
+          "control-plane.alpha.kubernetes.io/leader": "{\"holderIdentity\":\"ip-10-0-157-160_0f3d946b-bf5f-41fb-ad4f-9db72c5e184d\",\"leaseDurationSeconds\":15,\"acquireTime\":\"2020-03-28T00:18:20Z\",\"renewTime\":\"2020-03-28T00:32:49Z\",\"leaderTransitions\":0}"
+        },
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2020-03-28T00:32:47Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:annotations": {
+                  ".": {},
+                  "f:control-plane.alpha.kubernetes.io/leader": {}
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:32:49.321562Z",
+    "stageTimestamp": "2020-03-28T00:32:49.324564Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"system:kube-controller-manager\" of ClusterRole \"system:kube-controller-manager\" to User \"system:kube-controller-manager\""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Metadata",
+    "auditID": "c50a1492-311d-47ef-8891-176fc2460f1a",
+    "stage": "ResponseComplete",
+    "requestURI": "/apis/coordination.k8s.io/v1/namespaces/kube-system/leases/kube-controller-manager?timeout=10s",
+    "verb": "get",
+    "user": {
+      "username": "system:kube-controller-manager",
+      "groups": [
+        "system:authenticated"
+      ]
+    },
+    "sourceIPs": [
+      "10.0.157.160"
+    ],
+    "userAgent": "kube-controller-manager/v1.18.0 (linux/amd64) kubernetes/9e99141/leader-election",
+    "objectRef": {
+      "resource": "leases",
+      "namespace": "kube-system",
+      "name": "kube-controller-manager",
+      "apiGroup": "coordination.k8s.io",
+      "apiVersion": "v1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:32:49.325194Z",
+    "stageTimestamp": "2020-03-28T00:32:49.327776Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"system:kube-controller-manager\" of ClusterRole \"system:kube-controller-manager\" to User \"system:kube-controller-manager\""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Metadata",
+    "auditID": "4280f141-afe3-44d8-9794-0be4c4a69e5a",
+    "stage": "ResponseComplete",
+    "requestURI": "/apis/coordination.k8s.io/v1/namespaces/kube-system/leases/kube-controller-manager?timeout=10s",
+    "verb": "update",
+    "user": {
+      "username": "system:kube-controller-manager",
+      "groups": [
+        "system:authenticated"
+      ]
+    },
+    "sourceIPs": [
+      "10.0.157.160"
+    ],
+    "userAgent": "kube-controller-manager/v1.18.0 (linux/amd64) kubernetes/9e99141/leader-election",
+    "objectRef": {
+      "resource": "leases",
+      "namespace": "kube-system",
+      "name": "kube-controller-manager",
+      "uid": "11cee349-c129-4761-a6ef-738937f7118f",
+      "apiGroup": "coordination.k8s.io",
+      "apiVersion": "v1",
+      "resourceVersion": "2287"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:32:49.328455Z",
+    "stageTimestamp": "2020-03-28T00:32:49.331258Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"system:kube-controller-manager\" of ClusterRole \"system:kube-controller-manager\" to User \"system:kube-controller-manager\""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Request",
+    "auditID": "eeb56d9d-536a-42f2-ac1c-a8a1bbfcca4b",
+    "stage": "ResponseComplete",
+    "requestURI": "/api/v1/namespaces/default",
+    "verb": "get",
+    "user": {
+      "username": "system:apiserver",
+      "uid": "6d9f622a-eb70-4d19-a118-7c1e7bdd6b30",
+      "groups": [
+        "system:masters"
+      ]
+    },
+    "sourceIPs": [
+      "::1"
+    ],
+    "userAgent": "kube-apiserver/v1.18.0 (linux/amd64) kubernetes/9e99141",
+    "objectRef": {
+      "resource": "namespaces",
+      "namespace": "default",
+      "name": "default",
+      "apiVersion": "v1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:32:49.384597Z",
+    "stageTimestamp": "2020-03-28T00:32:49.385718Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": ""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Request",
+    "auditID": "e6a7ac18-c96c-4673-98fe-be518f5447b0",
+    "stage": "ResponseComplete",
+    "requestURI": "/api/v1/namespaces/default/services/kubernetes",
+    "verb": "get",
+    "user": {
+      "username": "system:apiserver",
+      "uid": "6d9f622a-eb70-4d19-a118-7c1e7bdd6b30",
+      "groups": [
+        "system:masters"
+      ]
+    },
+    "sourceIPs": [
+      "::1"
+    ],
+    "userAgent": "kube-apiserver/v1.18.0 (linux/amd64) kubernetes/9e99141",
+    "objectRef": {
+      "resource": "services",
+      "namespace": "default",
+      "name": "kubernetes",
+      "apiVersion": "v1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:32:49.386084Z",
+    "stageTimestamp": "2020-03-28T00:32:49.387897Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": ""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Request",
+    "auditID": "56393f5a-c578-445c-a501-ef666ecc2594",
+    "stage": "ResponseComplete",
+    "requestURI": "/api/v1/namespaces/default/endpoints/kubernetes",
+    "verb": "get",
+    "user": {
+      "username": "system:apiserver",
+      "uid": "6d9f622a-eb70-4d19-a118-7c1e7bdd6b30",
+      "groups": [
+        "system:masters"
+      ]
+    },
+    "sourceIPs": [
+      "::1"
+    ],
+    "userAgent": "kube-apiserver/v1.18.0 (linux/amd64) kubernetes/9e99141",
+    "objectRef": {
+      "resource": "endpoints",
+      "namespace": "default",
+      "name": "kubernetes",
+      "apiVersion": "v1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:32:49.391529Z",
+    "stageTimestamp": "2020-03-28T00:32:49.392688Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": ""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Metadata",
+    "auditID": "792262b3-7573-4732-b540-d7615c96b876",
+    "stage": "ResponseComplete",
+    "requestURI": "/apis/discovery.k8s.io/v1beta1/namespaces/default/endpointslices/kubernetes",
+    "verb": "get",
+    "user": {
+      "username": "system:apiserver",
+      "uid": "6d9f622a-eb70-4d19-a118-7c1e7bdd6b30",
+      "groups": [
+        "system:masters"
+      ]
+    },
+    "sourceIPs": [
+      "::1"
+    ],
+    "userAgent": "kube-apiserver/v1.18.0 (linux/amd64) kubernetes/9e99141",
+    "objectRef": {
+      "resource": "endpointslices",
+      "namespace": "default",
+      "name": "kubernetes",
+      "apiGroup": "discovery.k8s.io",
+      "apiVersion": "v1beta1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:32:49.393938Z",
+    "stageTimestamp": "2020-03-28T00:32:49.395158Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": ""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Metadata",
+    "auditID": "36f863af-1215-4ffe-89d2-fee2c367df0c",
+    "stage": "ResponseStarted",
+    "requestURI": "/apis/storage.k8s.io/v1/storageclasses?allowWatchBookmarks=true\u0026resourceVersion=1\u0026timeout=8m20s\u0026timeoutSeconds=500\u0026watch=true",
+    "verb": "watch",
+    "user": {
+      "username": "system:kube-scheduler",
+      "groups": [
+        "system:authenticated"
+      ]
+    },
+    "sourceIPs": [
+      "10.0.157.160"
+    ],
+    "userAgent": "kube-scheduler/v1.18.0 (linux/amd64) kubernetes/9e99141/scheduler",
+    "objectRef": {
+      "resource": "storageclasses",
+      "apiGroup": "storage.k8s.io",
+      "apiVersion": "v1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "status": "Success",
+      "message": "Connection closed early",
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:24:30.319794Z",
+    "stageTimestamp": "2020-03-28T00:32:50.320182Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"system:volume-scheduler\" of ClusterRole \"system:volume-scheduler\" to User \"system:kube-scheduler\""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
+    "level": "Metadata",
+    "auditID": "36f863af-1215-4ffe-89d2-fee2c367df0c",
+    "stage": "ResponseComplete",
+    "requestURI": "/apis/storage.k8s.io/v1/storageclasses?allowWatchBookmarks=true\u0026resourceVersion=1\u0026timeout=8m20s\u0026timeoutSeconds=500\u0026watch=true",
+    "verb": "watch",
+    "user": {
+      "username": "system:kube-scheduler",
+      "groups": [
+        "system:authenticated"
+      ]
+    },
+    "sourceIPs": [
+      "10.0.157.160"
+    ],
+    "userAgent": "kube-scheduler/v1.18.0 (linux/amd64) kubernetes/9e99141/scheduler",
+    "objectRef": {
+      "resource": "storageclasses",
+      "apiGroup": "storage.k8s.io",
+      "apiVersion": "v1"
+    },
+    "responseStatus": {
+      "metadata": {},
+      "status": "Success",
+      "message": "Connection closed early",
+      "code": 200
+    },
+    "requestReceivedTimestamp": "2020-03-28T00:24:30.319794Z",
+    "stageTimestamp": "2020-03-28T00:32:50.320288Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "allow",
+      "authorization.k8s.io/reason": "RBAC: allowed by ClusterRoleBinding \"system:volume-scheduler\" of ClusterRole \"system:volume-scheduler\" to User \"system:kube-scheduler\""
+    }
+  }
+]
