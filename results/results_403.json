@@ -33,6 +33,37 @@
   {
     "kind": "Event",
     "apiVersion": "audit.k8s.io/v1",
+    "level": "Request",
+    "auditID": "6b63a5da-d4c4-4749-b9cf-11d505142076",
+    "stage": "ResponseComplete",
+    "requestURI": "/",
+    "verb": "get",
+    "user": {
+      "username": "system:anonymous",
+      "groups": [
+        "system:unauthenticated"
+      ]
+    },
+    "sourceIPs": [
+      "209.17.96.162"
+    ],
+    "userAgent": "Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)",
+    "responseStatus": {
+      "metadata": {},
+      "status": "Failure",
+      "reason": "Forbidden",
+      "code": 403
+    },
+    "requestReceivedTimestamp": "2020-03-29T04:45:12.904652Z",
+    "stageTimestamp": "2020-03-29T04:45:12.968056Z",
+    "annotations": {
+      "authorization.k8s.io/decision": "forbid",
+      "authorization.k8s.io/reason": ""
+    }
+  },
+  {
+    "kind": "Event",
+    "apiVersion": "audit.k8s.io/v1",
     "level": "Metadata",
     "auditID": "c071ac4f-f7c1-44f1-b5b7-d77c5bda66e4",
     "stage": "ResponseComplete",

@@ -5,6 +5,7 @@ import os
 
 LOG_DIR = "logs/audit_logs/"
 OUT_DIR = "results/"
+PRIV_IP = "10"
 
 RESP_STATUS = "responseStatus"
 USER_AGENT = "userAgent"
@@ -19,6 +20,9 @@ def main():
     events = {}
 
     for file_name in os.listdir(LOG_DIR):
+        if file_name == ".DS_Store":
+            continue
+
         with open(LOG_DIR + file_name, "r") as log_file:
             print("processing '{}'".format(file_name))
 
@@ -38,7 +42,7 @@ def main():
 
                         if SOURCE_IPS in event:
                             for ip in event[SOURCE_IPS]:
-                                if ip != "::1" and ip.split(".")[0] != "10":
+                                if ip != "::1" and ip.split(".")[0] != PRIV_IP:
                                     non_ignore_count += 1
                                     if response_code in events:
                                         events[response_code].append(event)
