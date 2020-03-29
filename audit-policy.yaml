@@ -2,4 +2,10 @@
 apiVersion: audit.k8s.io/v1
 kind: Policy
 rules:
-  - level: Metadata
+  - level: None
+    userGroups: ["system:authenticated", "system:nodes", "system:masters"]
+    nonResourceURLs:
+      - "/api*"
+      - "/healthz*"
+
+  - level: Request
