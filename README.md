@@ -5,6 +5,14 @@ kube-apiserver audit policy: `/etc/kubernetes/audit-policy.yaml` \
 kube-apiserver audit log: `/etc/kubernetes/log/audit.log`
 
 ## Setup Instructions
+Expose security groups inbound rules:
+ - Custom TCP Traffic, Port 22, Allow Anywhere
+ - Custom TCP Traffic, Port 6443, Allow Anywhere
+ - Custom TCP Traffic, Port 8080, Allow Anywhere
+ - Custom TCP Traffic, Port 2379, Allow Anywhere
+ - Custom TCP Traffic, Port 2380, Allow Anywhere
+ - Custom TCP Traffic, Port 80, Allow Anywhere
+
 SSH:
 ```bash
 $ ssh ubuntu@$SERVER_IP -i $PRIV_KEY
