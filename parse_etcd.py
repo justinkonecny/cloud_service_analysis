@@ -1,8 +1,7 @@
-import pprint
 import json
 import os
 
-FILTER_IP = "73.178.103.69"  # add your private IP to filter from results.json
+FILTER_IP = ""  # add your private IP to filter from results.json
 
 LOG_DIR = "logs/etcd_logs/"
 OUT_DIR = "results/"
