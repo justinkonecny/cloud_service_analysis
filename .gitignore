@@ -2,6 +2,7 @@
 logs/audit_logs/
 logs/etcd_logs/
 logs/log/
+logs/audit_logs_*
 .DS_Store
 scripts/
 results/
