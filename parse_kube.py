@@ -76,8 +76,8 @@ def main():
     print()
 
     for code, event_list in events.items():
-        with open(OUT_DIR + "results_{}.json".format(code), "w") as out_file:
-            print("writing '{}'".format(OUT_DIR + "results_{}.json".format(code)))
+        with open(OUT_DIR + "kube_results_{}.json".format(code), "w") as out_file:
+            print("writing '{}'".format(OUT_DIR + "kube_results_{}.json".format(code)))
             out_file.write(json.dumps(event_list))
 
     print("\nTOTAL:")
