@@ -25,6 +25,7 @@ def increment(key: str, dictionary: dict) -> None:
 
 def main():
     non_ignore_count = 0
+    total_count = 0
     events = {}
     ip_count = {}
 
@@ -40,7 +41,7 @@ def main():
             event_list = json.loads(event_raw)
             for event in event_list:
 
-                non_ignore_count += 1
+                total_count += 1
 
                 event = event.replace("\n", "")
 
@@ -57,11 +58,13 @@ def main():
                             final = rest.split(POST, 1)
                             error = final[0]
 
+                            non_ignore_count += 1
                             if ip in events:
                                 events[ip].append(error)
                             else:
                                 events[ip] = [error]
 
+    print("\nTotal Count: [{}]".format(total_count))
     print("Non-Ignore Count: [{}]\n".format(non_ignore_count))
     print("IPs:")
     pprint.pprint(ip_count)

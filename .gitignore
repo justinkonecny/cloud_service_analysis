@@ -6,3 +6,4 @@ logs/audit_logs_*
 .DS_Store
 scripts/
 results/
+zipped/
