@@ -52,7 +52,7 @@ def main():
 
                             for ip in event[SOURCE_IPS]:
                                 increment(ip, ip_count)  # increment count for this IP
-                                if ip == "::1" or ip.split(".")[0] == PRIV_IP or (FILTER_IP != "" and ip == FILTER_IP):
+                                if ip == "::1" or ip[:len(PRIV_IP)] == PRIV_IP or (FILTER_IP != "" and ip == FILTER_IP):
                                     # don't log IPv6 loopback, local traffic, or your traffic
                                     should_log = False
 
