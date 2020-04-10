@@ -71,7 +71,7 @@ def main():
     print()
 
     print("\nTOTAL:")
-    pprint.pprint(events)
+    pprint.pprint(events, width=120)
 
 
 main()
