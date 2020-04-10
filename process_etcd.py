@@ -68,8 +68,7 @@ def main():
     print()
 
     print("\nTOTAL:")
-    for key, value in events.items():
-        print("[{}]: ".format(key), str(value))
+    pprint.pprint(events)
 
 
 main()
