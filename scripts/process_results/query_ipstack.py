@@ -7,20 +7,22 @@ IP_FILE_PATH = "../../results/ip/total_ip_results.json"
 IPSTACK_API_KEY = ""
 IPSTACK_URL = "http://api.ipstack.com/{}?access_key={}"
 
+OUT_FILE = "../../results/ipstack/ip_coordinates.json"
+
 
 def ips_to_coordinates(service_dict):
     """
     Takes a dict from ip to number of hits
     Adds coordinates to each IP.
     """
-    coord_counts = {}
+    coord_counts = []
     for ip in service_dict:
         print("querying for '{}'".format(ip))
         response = requests.get(IPSTACK_URL.format(ip, IPSTACK_API_KEY))
         content = json.loads(response.content)
         lat = content['latitude']
         long = content['longitude']
-        coord_counts[(lat, long)] = service_dict[ip]
+        coord_counts.append([lat, long, service_dict[ip]])
     return coord_counts
 
 
@@ -46,6 +48,14 @@ def main():
         print("Etcd")
         print("#####" * 15)
         pprint.pprint(etcd_coords, width=120)
+
+        total = {
+            "kubernetes": kubernetes_coords,
+            "etcd": etcd_coords
+        }
+
+        with open(OUT_FILE, "w") as out_file:
+            out_file.write(json.dumps(total))
 
 
 if __name__ == '__main__':
