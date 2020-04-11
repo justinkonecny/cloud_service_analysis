@@ -2,7 +2,8 @@ import pprint
 import json
 import os
 
-LOG_DIR = "../../results/kubernetes/"
+KUBERNETES_LOG_DIR = "../../results/kubernetes/"
+ETCD_LOG_DIR = "../../results/etcd/"
 
 LOG_SUFFIX = ".json"  # only parse logs that begin with this
 
@@ -19,18 +20,44 @@ def increment(key: str, dictionary: dict) -> None:
         dictionary[key] = 1
 
 
-def main():
+def run_etcd():
+
+    date_counts = {}
+
+    for file_name in os.listdir(ETCD_LOG_DIR):
+        if file_name[(-1) * len(LOG_SUFFIX):] != LOG_SUFFIX:
+            print("skipping '{}'".format(file_name))
+            continue
+
+        with open(ETCD_LOG_DIR + file_name, "r") as log_file:
+            print("processing '{}'".format(file_name))
+
+            event_raw = log_file.read()
+            event_list = json.loads(event_raw)
+            for event in event_list:
+                if event[4] == '-' and event[7] == '-':
+                    date = event[:10]
+                    increment(date, date_counts)
+                elif event[:7] == 'WARNING':
+                    date = event[9:19].replace('/', '-')
+                    increment(date, date_counts)
+
+
+    pprint.pprint(date_counts)
+
+
+def run_kubernetes():
     non_ignore_count = 0
     event_count = {}
     events = {}
     ip_count = {}
 
-    for file_name in os.listdir(LOG_DIR):
+    for file_name in os.listdir(KUBERNETES_LOG_DIR):
         if file_name[(-1) * len(LOG_SUFFIX):] != LOG_SUFFIX:
             print("skipping '{}'".format(file_name))
             continue
 
-        with open(LOG_DIR + file_name, "r") as log_file:
+        with open(KUBERNETES_LOG_DIR + file_name, "r") as log_file:
             print("processing '{}'".format(file_name))
 
             event_raw = log_file.read()
@@ -67,6 +94,12 @@ def main():
 
     print("\nTOTAL:")
     pprint.pprint(event_count)
+    print()
+
+
+def main():
+    run_kubernetes()
+    run_etcd()
 
 
 main()
