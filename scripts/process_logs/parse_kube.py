@@ -2,13 +2,13 @@ import pprint
 import json
 import os
 
-FILTER_IP = ""  # add your private IP to filter from results.json
+FILTER_IP = ""
+AWS_PRIVATE_IP = "10.0.0"
 
-LOG_DIR = "logs/audit_logs/"
-OUT_DIR = "results/"
-PRIV_IP = "10"
+LOG_DIR = "../../logs/audit_logs/"
+OUT_DIR = "../../results/partial/"
 
-LOG_PREFIX = "audit"  # only parse logs that begin with this
+LOG_PREFIX = "audit"
 
 RESP_STATUS = "responseStatus"
 USER_AGENT = "userAgent"
@@ -52,7 +52,7 @@ def main():
 
                             for ip in event[SOURCE_IPS]:
                                 increment(ip, ip_count)  # increment count for this IP
-                                if ip == "::1" or ip[:len(PRIV_IP)] == PRIV_IP or (FILTER_IP != "" and ip == FILTER_IP):
+                                if ip == "::1" or ip[:len(AWS_PRIVATE_IP)] == AWS_PRIVATE_IP or (FILTER_IP != "" and ip == FILTER_IP):
                                     # don't log IPv6 loopback, local traffic, or your traffic
                                     should_log = False
 

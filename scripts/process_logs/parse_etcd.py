@@ -1,13 +1,12 @@
 import json
 import os
 
-FILTER_IP = ""  # add your private IP to filter from results.json
+FILTER_IP = ""
 
-LOG_DIR = "logs/etcd_logs/"
-OUT_DIR = "results/"
-PRIV_IP = "10"
+LOG_DIR = "../../logs/etcd_logs/"
+OUT_DIR = "../../results/etcd/"
 
-LOG_SUFFIX = ".log"  # only parse logs that end with this
+LOG_SUFFIX = ".log"
 
 REJECTED = "rejected"
 ERROR = "error"

@@ -2,8 +2,8 @@ import pprint
 import json
 import os
 
-LOG_DIR = "results/zipped/"
-OUT_DIR = "results/condensed/"
+INPUT_DIR = "../../results/partial/"
+OUT_DIR = "../../results/kubernetes/"
 
 LOG_SUFFIX = ".json"  # only parse logs that begin with this
 
@@ -26,12 +26,12 @@ def main():
     events = {}
     ip_count = {}
 
-    for file_name in os.listdir(LOG_DIR):
+    for file_name in os.listdir(INPUT_DIR):
         if file_name[(-1) * len(LOG_SUFFIX):] != LOG_SUFFIX:
             print("skipping '{}'".format(file_name))
             continue
 
-        with open(LOG_DIR + file_name, "r") as log_file:
+        with open(INPUT_DIR + file_name, "r") as log_file:
             print("processing '{}'".format(file_name))
 
             event_raw = log_file.read()

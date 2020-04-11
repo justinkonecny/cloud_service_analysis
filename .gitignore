@@ -1,9 +1,7 @@
 .idea/
-logs/audit_logs/
-logs/etcd_logs/
-logs/log/
+*.log
+*.json
 logs/audit_logs_*
 .DS_Store
-scripts/
+scp_logs.sh
 results/
-zipped/
