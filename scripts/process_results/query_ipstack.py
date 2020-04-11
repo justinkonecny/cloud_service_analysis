@@ -27,6 +27,10 @@ def ips_to_coordinates(service_dict):
 
 
 def main():
+    if IPSTACK_API_KEY == "":
+        print("Missing API key")
+        return
+
     with open(IP_FILE_PATH, 'r') as ip_file:
         ips = json.load(ip_file)
 
