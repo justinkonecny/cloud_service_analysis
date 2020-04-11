@@ -1,6 +1,7 @@
 .idea/
 *.log
 *.json
+*.tar.gz
 logs/audit_logs_*
 .DS_Store
 scp_logs.sh
