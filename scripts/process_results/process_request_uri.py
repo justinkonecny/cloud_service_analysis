@@ -2,7 +2,7 @@ import pprint
 import json
 import os
 
-LOG_DIR = "results/condense/"
+LOG_DIR = "../../results/kubernetes/"
 
 LOG_SUFFIX = ".json"  # only parse logs that begin with this
 

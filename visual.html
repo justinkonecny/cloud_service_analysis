@@ -2,30 +2,79 @@
 <head>
     <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
     <script type='text/javascript'>
-        google.charts.load('current', {
-            'packages': ['geochart'],
-            'mapsApiKey': ''
-        });
-        google.charts.setOnLoadCallback(drawMarkersMap);
+        const JSON_IP_FILE = 'results/ipstack/ip_coordinates.json';
+
+        const json_kube = [['Latitude', 'Longitude', 'Count']];
+        const json_etcd = [['Latitude', 'Longitude', 'Count']];
 
         function drawMarkersMap() {
-            var data = google.visualization.arrayToDataTable([
-                ['Latitude', 'Longitude', 'Count'],
-                [34.04563903808594, -118.24163818359375, 1]
-            ]);
-
-            var options = {
+            let options_kube = {
                 region: 'world',
                 displayMode: 'markers',
-                colorAxis: {colors: ['green', 'blue']}
+                colorAxis: {colors: ['#ffd000', 'red']}
             };
 
-            var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        };
+            let options_etcd = {
+                region: 'world',
+                displayMode: 'markers',
+                colorAxis: {colors: ['#00ff44', '#00d5ff']}
+            };
+
+            let chart_kube = new google.visualization.GeoChart(document.getElementById('chart_div_kube'));
+            let chart_etcd = new google.visualization.GeoChart(document.getElementById('chart_div_etcd'));
+
+            let kube = google.visualization.arrayToDataTable(json_kube);
+            let etcd = google.visualization.arrayToDataTable(json_etcd);
+
+            chart_kube.draw(kube, options_kube);
+            chart_etcd.draw(etcd, options_etcd);
+        }
+
+        function readTextFile(file, callback, json_kube, json_etcd) {
+            const rawFile = new XMLHttpRequest();
+            rawFile.overrideMimeType('application/json');
+            rawFile.open('GET', file, true);
+            rawFile.onreadystatechange = function () {
+                if (rawFile.readyState === 4 && rawFile.status === 200) {
+                    callback(rawFile.responseText, json_kube, json_etcd);
+                }
+            };
+            rawFile.send(null);
+        }
+
+        readTextFile(JSON_IP_FILE, function (text, json_kube, json_etcd) {
+            const data = JSON.parse(text);
+
+            const kube_list = data['kubernetes'];
+            const etcd_list = data['etcd'];
+
+            for (let row of kube_list) {
+                json_kube.push(row);
+            }
+
+            for (let row of etcd_list) {
+                json_etcd.push(row);
+            }
+
+            google.charts.load('current', {
+                'packages': ['geochart'],
+                'mapsApiKey': ''
+            });
+            google.charts.setOnLoadCallback(drawMarkersMap);
+        }, json_kube, json_etcd);
     </script>
 </head>
 <body>
-<div id="chart_div" style="width: 900px; height: 500px;"></div>
+<div style='display: flex; width: 100%; height: 100%;'>
+    <div style='width: 100%; height: 100%;'>
+        <h2>Kubernetes</h2>
+        <div id='chart_div_kube' style='width: 100%; height: 90%;'></div>
+    </div>
+
+    <div style='width: 100%; height: 100%;'>
+        <h2>Etcd</h2>
+        <div id='chart_div_etcd' style='width: 100%; height: 90%'></div>
+    </div>
+</div>
 </body>
 </html>
