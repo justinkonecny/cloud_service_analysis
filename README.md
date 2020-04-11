@@ -58,3 +58,7 @@ Record:
 ```bash
 $ kubectl cluster-info
 ```
+
+## Data Analysis
+
+See webcrawler.docx for some research into the web crawlers we saw activity from.
