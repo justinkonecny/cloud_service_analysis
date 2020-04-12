@@ -5,7 +5,7 @@ import os
 INPUT_DIR = "../../results/partial/"
 OUT_DIR = "../../results/kubernetes/"
 
-LOG_SUFFIX = ".json"  # only parse logs that begin with this
+LOG_SUFFIX = ".json"
 
 RESP_STATUS = "responseStatus"
 USER_AGENT = "userAgent"
@@ -42,7 +42,7 @@ def main():
 
                     if CODE in response_status:
                         response_code = str(response_status[CODE])
-                        increment(response_code, event_count)  # increment count for this HTTP status code
+                        increment(response_code, event_count)
 
                         if SOURCE_IPS in event:
                             non_ignore_count += 1
@@ -50,7 +50,6 @@ def main():
                                 events[response_code].append(event)
                             else:
                                 events[response_code] = [event]
-
 
     total_count = 0
     for count in event_count.values():
