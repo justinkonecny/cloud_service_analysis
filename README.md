@@ -61,4 +61,27 @@ $ kubectl cluster-info
 
 ## Data Analysis
 
+(1) Filter out uninteresting logs:
+```bash
+$ python3 parse_kube.py
+$ python3 parse_etcd.py
+```
+
+(2) [Optional] Condense multiple `.json` results into one file:
+```bash
+$ python3 condense_kube.py
+```
+
+(3) Extract IPs from kube and etcd logs, then query for location (also populates `visual.html`):
+```bash
+$ python3 process_ips.py
+$ python3 query_ipstack.py
+```
+
+(4) Interpret request URIs and time frequencies:
+```bash
+$ python3 process_request_uri.py
+$ python3 process_time_freq.py
+```
+
 See webcrawler.docx for some research into the web crawlers we saw activity from.
