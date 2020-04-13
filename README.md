@@ -84,4 +84,4 @@ $ python3 process_request_uri.py
 $ python3 process_time_freq.py
 ```
 
-See webcrawler.docx for some research into the web crawlers we saw activity from.
+See webcrawlers.txt for some research into the web crawlers we saw activity from.
