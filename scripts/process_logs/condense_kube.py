@@ -2,7 +2,7 @@ import pprint
 import json
 import os
 
-INPUT_DIR = "../../results/partial/"
+INPUT_DIR = "../../results/partial_coordinates/"
 OUT_DIR = "../../results/kubernetes/"
 
 LOG_SUFFIX = ".json"

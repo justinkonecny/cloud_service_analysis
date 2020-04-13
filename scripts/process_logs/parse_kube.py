@@ -6,7 +6,7 @@ FILTER_IP = ""
 AWS_PRIVATE_IP = "10.0"
 
 LOG_DIR = "../../logs/audit_logs/"
-OUT_DIR = "../../results/partial/"
+OUT_DIR = "../../results/partial_coordinates/"
 
 LOG_PREFIX = "audit"
 

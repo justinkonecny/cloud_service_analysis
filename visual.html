@@ -2,7 +2,7 @@
 <head>
     <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
     <script type='text/javascript'>
-        const JSON_IP_FILE = 'results/ipstack/ip_coordinates.json';
+        const JSON_IP_FILE = 'visuals/combined_ip_coordinates.json';
 
         const json_kube = [['Latitude', 'Longitude', 'Count']];
         const json_etcd = [['Latitude', 'Longitude', 'Count']];
@@ -10,13 +10,21 @@
         function drawMarkersMap() {
             let options_kube = {
                 region: 'world',
+                sizeAxis: {minSize: 8, maxSize: 25},
                 displayMode: 'markers',
-                colorAxis: {colors: ['#ffd000', 'red']}
+                backgroundColor: '#343434',
+                datalessRegionColor: '#bcbcbc',
+                defaultColor: '#ffffff',
+                colorAxis: {colors: ['#ffcf36', 'red']}
             };
 
             let options_etcd = {
                 region: 'world',
+                sizeAxis: {minSize: 8, maxSize: 25},
                 displayMode: 'markers',
+                backgroundColor: '#343434',
+                datalessRegionColor: '#bcbcbc',
+                defaultColor: '#ffffff',
                 colorAxis: {colors: ['#00ff44', '#00d5ff']}
             };
 
@@ -64,8 +72,8 @@
         }, json_kube, json_etcd);
     </script>
 </head>
-<body>
-<div style='display: flex; width: 100%; height: 100%;'>
+<body style="background-color: #343434; color: white;">
+<div style='display: block; width: 100%; height: 100%;'>
     <div style='width: 100%; height: 100%;'>
         <h2>Kubernetes</h2>
         <div id='chart_div_kube' style='width: 100%; height: 90%;'></div>
