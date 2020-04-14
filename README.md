@@ -1,67 +1,65 @@
-# netsec final
+# Cloud Service Bruteforcing
 
 ## Locations
 kube-apiserver audit policy: `/etc/kubernetes/audit-policy.yaml` \
 kube-apiserver audit log: `/etc/kubernetes/log/audit.log`
 
 ## Setup Instructions
-Expose security groups inbound rules:
+On AWS, expose the following **inbound** rules on the EC2's security group:
  - Custom TCP Traffic, Port 22, Allow Anywhere
  - Custom TCP Traffic, Port 6443, Allow Anywhere
- - Custom TCP Traffic, Port 8080, Allow Anywhere
  - Custom TCP Traffic, Port 2379, Allow Anywhere
  - Custom TCP Traffic, Port 2380, Allow Anywhere
- - Custom TCP Traffic, Port 80, Allow Anywhere
 
-SSH:
+(1) SSH into the EC2:
 ```bash
 $ ssh ubuntu@$SERVER_IP -i $PRIV_KEY
 ```
 
-Root:
+(2) Switch to the user `root`:
 ```bash
 $ sudo su
 ```
 
-Install:
+(3) Perform setup installation:
 ```bash
 $ ./init_setup
 ```
 
-Verify:
+(4) Verify that the setup was successful:
 ```bash
 $ kubectl version --client
 $ kubelet --version
 $ kubeadm version
 ```
 
-Start:
+(5) Start kubernetes:
 ```bash
 $ kubeadm init --ignore-preflight-errors=NumCPU --v=5 --config config_kubeadm.yaml
 ```
 
-Ubuntu:
+(6) Drop back to the user `ubuntu`:
 ```bash
 $ exit
 ```
 
-Link:
+(7) Configure the current setup for `ubuntu`:
 ```bash
 $ mkdir -p $HOME/.kube
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## Next
+## Interacting
 
-Record:
+To view cluster information:
 ```bash
 $ kubectl cluster-info
 ```
 
 ## Data Analysis
 
-(1) Filter out uninteresting logs:
+(1) Filter out uninteresting logs from the `.log` files to produce a results `.json`:
 ```bash
 $ python3 parse_kube.py
 $ python3 parse_etcd.py
@@ -72,16 +70,17 @@ $ python3 parse_etcd.py
 $ python3 condense_kube.py
 ```
 
-(3) Extract IPs from kube and etcd logs, then query for location (also populates `visual.html`):
+(3) Extract the IPs from kubernetes and etcd logs, then query for geolocation (also populates `visual.html`):
 ```bash
 $ python3 process_ips.py
 $ python3 query_ipstack.py
 ```
 
-(4) Interpret request URIs and time frequencies:
+(4) Interpret request URIs and time frequencies (only to stdout):
 ```bash
 $ python3 process_request_uri.py
 $ python3 process_time_freq.py
 ```
 
-See webcrawlers.txt for some research into the web crawlers we saw activity from.
+\
+See `webcrawlers.txt` for some research into the web crawlers we saw activity from.
