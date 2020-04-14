@@ -1,8 +1,13 @@
 # Cloud Service Bruteforcing
 
-## Locations
+## Default Setup Locations (on EC2)
 kube-apiserver audit policy: `/etc/kubernetes/audit-policy.yaml` \
 kube-apiserver audit log: `/etc/kubernetes/log/audit.log`
+
+## Final IP Results
+Total hits per IP (IP, count): `/visuals/combined_ip_results.json` \
+Total hits per IP (lat., long., count): `/visuals/combined_ip_results.json`
+
 
 ## Setup Instructions
 On AWS, expose the following **inbound** rules on the EC2's security group:
