@@ -82,5 +82,10 @@ $ python3 process_request_uri.py
 $ python3 process_time_freq.py
 ```
 
+(5) View interactive map:
+ - Add your Google GeoCharts API key to `mapApiKey` in `visual.html`
+ - Ensure `visuals/combined_ip_coordinates.json` is properly populated with coordinates
+ - Open `visual.html` in Google Chrome
+
 \
 See `webcrawlers.txt` for some research into the web crawlers we saw activity from.
