@@ -6,3 +6,4 @@ logs/audit_logs_*
 .DS_Store
 scp_logs.sh
 results/
+!visuals/**/*.json
